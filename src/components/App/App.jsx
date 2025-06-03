@@ -1,5 +1,6 @@
 import { filterWeatherData } from "../../utils/weatherApi";
 import { useState, useEffect } from "react";
+import Footer from "../Footer/Footer";
 
 import "./App.css";
 import { coordinates, APIkey } from "../../utils/constants";
@@ -116,6 +117,8 @@ function App() {
         card={selectedCard}
         onClose={closeActiveModal}
       />
+
+      <Footer />
     </div>
   );
 }
