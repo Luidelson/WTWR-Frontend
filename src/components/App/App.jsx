@@ -1,5 +1,6 @@
 import { filterWeatherData } from "../../utils/weatherApi";
 import { useState, useEffect } from "react";
+import Footer from "../Footer/Footer";
 
 import "./App.css";
 import { coordinates, APIkey } from "../../utils/constants";
@@ -83,7 +84,7 @@ function App() {
               className="modal__radio-input"
               name="weatherType"
             />
-            hot
+            Hot
           </label>
           <label
             htmlFor="warm"
@@ -95,7 +96,7 @@ function App() {
               className="modal__radio-input"
               name="weatherType"
             />
-            warm
+            Warm
           </label>
           <label
             htmlFor="cold"
@@ -107,7 +108,7 @@ function App() {
               className="modal__radio-input"
               name="weatherType"
             />
-            cold
+            Cold
           </label>
         </fieldset>
       </ModalWithForm>
@@ -116,6 +117,8 @@ function App() {
         card={selectedCard}
         onClose={closeActiveModal}
       />
+
+      <Footer />
     </div>
   );
 }
