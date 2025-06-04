@@ -11,10 +11,14 @@ export const getWeather = ({ latitude, longitude }, APIkey) => {
 };
 
 export const filterWeatherData = (data) => {
+  const kelvin = data.main.temp;
+  const fahrenheit = Math.round(((kelvin - 273.15) * 9) / 5 + 32);
+  const celsius = Math.round(kelvin - 273.15);
+
   const result = {};
   result.city = data.name;
-  result.temp = { F: data.main.temp };
-  result.type = getWeatherType(result.temp.F);
+  result.temp = { F: fahrenheit, C: celsius };
+  result.type = getWeatherType(fahrenheit);
   result.condition = data.weather[0].main.toLowerCase();
   result.isDay = isDay(data.sys, Date.now());
   return result;
