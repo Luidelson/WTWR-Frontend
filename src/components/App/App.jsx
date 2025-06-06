@@ -12,7 +12,7 @@ import { getWeather } from "../../utils/weatherApi";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
-    type: "cold",
+    type: "",
     temp: {
       F: "",
       C: "",
