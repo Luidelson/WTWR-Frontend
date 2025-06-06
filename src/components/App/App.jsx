@@ -53,7 +53,7 @@ function App() {
       <ModalWithForm
         title="New garment"
         buttonText="Add garment"
-        activeModal={activeModal}
+        isOpen={activeModal === "add-garment"}
         setActiveModal={setActiveModal}
         onClose={closeActiveModal}
       >
