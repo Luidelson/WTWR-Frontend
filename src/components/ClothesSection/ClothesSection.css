@@ -1,0 +1,28 @@
+.clothes-section__header {
+  display: flex;
+  align-items: center;
+  gap: 12px; /* space between title and button */
+  margin-bottom: 16px; /* space below the header */
+  margin-left: 40px;
+}
+
+.clothes-section__title {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0;
+  text-transform: capitalize;
+}
+
+.clothes-section__add-btn {
+  font-size: 16px;
+  font-weight: 500;
+  background: none;
+  border: none;
+  color: #222;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* .clothes-section__items {
+  
+} */

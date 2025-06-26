@@ -16,6 +16,7 @@
   margin: 0 20px 0 auto;
   background-color: transparent;
   border: none;
+  margin-left: 16px;
 }
 
 .header__user-container {
@@ -26,4 +27,14 @@
 
 .header__username {
   margin: 0;
+}
+
+.header__link {
+  text-decoration: none;
+  color: black;
+}
+
+.toggle-switch {
+  margin-left: auto; /* pushes toggle and button to the right if needed */
+  margin-right: 0;
 }

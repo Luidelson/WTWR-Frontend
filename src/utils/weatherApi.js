@@ -14,6 +14,7 @@ export const filterWeatherData = (data) => {
   const kelvin = data.main.temp;
   const fahrenheit = Math.round(((kelvin - 273.15) * 9) / 5 + 32);
   const celsius = Math.round(kelvin - 273.15);
+  console.log(fahrenheit, celsius);
 
   const result = {};
   result.city = data.name;
