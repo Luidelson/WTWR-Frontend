@@ -52,6 +52,11 @@ function App() {
     setSelectedCard(card);
   };
 
+  const handleDeleteItem = (id) => {
+    setClothingItems((prev) => prev.filter((item) => item._id !== id));
+    closeActiveModal();
+  };
+
   useEffect(() => {
     getWeather(coordinates, APIkey)
       .then((data) => {
@@ -64,14 +69,17 @@ function App() {
   useEffect(() => {
     getItems()
       .then((data) => {
-        console.log(data);
+        setClothingItems(data);
       })
       .catch(console.error);
   }, []);
 
   const handleAddItemModalSubmit = ({ name, imageUrl, weather }) => {
     const newId = Math.max(...clothingItems.map((item) => item._id)) + 1;
-    setClothingItems([{ name, link: imageUrl, weather }, ...clothingItems]);
+    setClothingItems([
+      { _id: newId, name, link: imageUrl, weather },
+      ...clothingItems,
+    ]);
     closeActiveModal();
   };
 
@@ -95,7 +103,12 @@ function App() {
             />
             <Route
               path="/profile"
-              element={<Profile onCardClick={handleCardClick} />}
+              element={
+                <Profile
+                  onCardClick={handleCardClick}
+                  clothingItems={clothingItems} // <-- pass this prop
+                />
+              }
             />
           </Routes>
         </div>
@@ -109,6 +122,7 @@ function App() {
           activeModal={activeModal}
           card={selectedCard}
           onClose={closeActiveModal}
+          onDelete={handleDeleteItem}
         />
 
         <Footer />

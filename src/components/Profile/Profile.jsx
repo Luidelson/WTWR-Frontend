@@ -2,7 +2,8 @@ import ClothesSection from "../ClothesSection/ClothesSection";
 import SideBar from "../SideBar/SideBar";
 import "./Profile.css";
 
-function Profile({ onCardClick }) {
+// In Profile.jsx
+function Profile({ onCardClick, clothingItems }) {
   return (
     <div className="profile">
       <section className="profile__sidebar">
@@ -10,7 +11,10 @@ function Profile({ onCardClick }) {
         <img src="" alt="" />
       </section>
       <section className="profile__clothing-items">
-        <ClothesSection />
+        <ClothesSection
+          handleCardClick={onCardClick}
+          clothingItems={clothingItems} // <-- pass down
+        />
       </section>
     </div>
   );
