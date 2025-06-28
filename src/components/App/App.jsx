@@ -13,7 +13,7 @@ import AddItemModal from "../AddItemModal/AddItemModal";
 import { defaultClothingItems } from "../../utils/constants";
 import Profile from "../Profile/Profile";
 import SideBar from "../SideBar/SideBar";
-import { getItems } from "../../utils/api";
+import { getItems, addItem, deleteItem } from "../../utils/api";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -53,8 +53,12 @@ function App() {
   };
 
   const handleDeleteItem = (id) => {
-    setClothingItems((prev) => prev.filter((item) => item._id !== id));
-    closeActiveModal();
+    deleteItem(id)
+      .then(() => {
+        setClothingItems((prev) => prev.filter((item) => item._id !== id));
+        closeActiveModal();
+      })
+      .catch(console.error);
   };
 
   useEffect(() => {
@@ -75,12 +79,13 @@ function App() {
   }, []);
 
   const handleAddItemModalSubmit = ({ name, imageUrl, weather }) => {
-    const newId = Math.max(...clothingItems.map((item) => item._id)) + 1;
-    setClothingItems([
-      { _id: newId, name, link: imageUrl, weather },
-      ...clothingItems,
-    ]);
-    closeActiveModal();
+    const newItem = { name, link: imageUrl, weather };
+    addItem(newItem)
+      .then((createdItem) => {
+        setClothingItems([createdItem, ...clothingItems]);
+        closeActiveModal();
+      })
+      .catch(console.error);
   };
 
   return (
