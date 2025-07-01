@@ -111,7 +111,8 @@ function App() {
               element={
                 <Profile
                   onCardClick={handleCardClick}
-                  clothingItems={clothingItems} // <-- pass this prop
+                  clothingItems={clothingItems}
+                  onAddClick={handleAddClick}
                 />
               }
             />

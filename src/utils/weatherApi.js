@@ -1,20 +1,15 @@
+import { checkResponse } from "./api";
+
 export const getWeather = ({ latitude, longitude }, APIkey) => {
   return fetch(
     `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${APIkey}`
-  ).then((res) => {
-    if (res.ok) {
-      return res.json();
-    } else {
-      return Promise.reject(`Error: ${res.status}`);
-    }
-  });
+  ).then(checkResponse);
 };
 
 export const filterWeatherData = (data) => {
   const kelvin = data.main.temp;
   const fahrenheit = Math.round(((kelvin - 273.15) * 9) / 5 + 32);
   const celsius = Math.round(kelvin - 273.15);
-  console.log(fahrenheit, celsius);
 
   const result = {};
   result.city = data.name;
