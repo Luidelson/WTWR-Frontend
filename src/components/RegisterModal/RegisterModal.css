@@ -1,0 +1,19 @@
+/* RegisterModal specific styles */
+.modal__footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.modal__switch-button {
+  background: none;
+  border: none;
+  color: #333;
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: 16px;
+}
+
+.modal__switch-button:hover {
+  color: #555;
+}
