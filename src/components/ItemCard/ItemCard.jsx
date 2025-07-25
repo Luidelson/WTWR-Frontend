@@ -33,7 +33,7 @@ function ItemCard({ item, onCardClick, onCardLike }) {
       <img
         onClick={() => onCardClick(item)}
         className="card__image"
-        src={item.link}
+        src={item.imageUrl}
         alt={item.name}
       />
     </li>

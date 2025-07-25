@@ -34,11 +34,12 @@
 .sidebar__edit-button {
   background: none;
   border: none;
-  color: #333;
+  color: black;
   cursor: pointer;
   font-size: 16px;
   text-decoration: underline;
   padding: 0;
+  text-decoration: none;
 }
 
 .sidebar__edit-button:hover {
@@ -48,11 +49,12 @@
 .sidebar__signout-button {
   background: none;
   border: none;
-  color: #333;
+  color: black;
   cursor: pointer;
   font-size: 16px;
   text-decoration: underline;
   padding: 0;
+  text-decoration: none;
 }
 
 .sidebar__signout-button:hover {

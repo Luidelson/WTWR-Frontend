@@ -13,7 +13,6 @@ import CurrentUserContext from "../../contexts/CurrentUserContext";
 import AddItemModal from "../AddItemModal/AddItemModal";
 import { defaultClothingItems } from "../../utils/constants";
 import Profile from "../Profile/Profile";
-import SideBar from "../SideBar/SideBar";
 import {
   getItems,
   addItem,
@@ -317,7 +316,6 @@ function App() {
             card={selectedCard}
             onClose={closeActiveModal}
             onDelete={handleDeleteItem}
-            onCardLike={handleCardLike}
           />
 
           <Footer />

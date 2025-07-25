@@ -107,5 +107,51 @@
 }
 
 .modal__footer {
-  padding-left: 32px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  /* gap: 12px; */
+  position: relative;
+}
+
+.modal__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.modal__caption {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: #000;
+}
+
+.modal__weather {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  color: black;
+  font-weight: 700;
+}
+
+.modal__delete {
+  position: absolute;
+  top: 0;
+  right: 40px;
+  background: none;
+  border: none;
+  color: #ff4d00;
+  font-size: 16px;
+  font-weight: 400;
+  cursor: pointer;
+  padding: 0;
+}
+
+.modal__delete:hover {
+  color: #e03900;
+}
+
+.modal__delete_hidden {
+  display: none;
 }

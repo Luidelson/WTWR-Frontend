@@ -1,12 +1,17 @@
 import "./Header.css";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import logo from "../../assets/wtwr.logo.svg";
-import avatar from "../../assets/avatar.logo.png";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 
-function Header({ handleAddClick, weatherData, isLoggedIn, onLoginClick, onRegisterClick }) {
+function Header({
+  handleAddClick,
+  weatherData,
+  isLoggedIn,
+  onLoginClick,
+  onRegisterClick,
+}) {
   const currentUser = useContext(CurrentUserContext);
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
@@ -26,7 +31,7 @@ function Header({ handleAddClick, weatherData, isLoggedIn, onLoginClick, onRegis
         {currentDate}, {weatherData.city}
       </p>
       <ToggleSwitch />
-      
+
       {isLoggedIn ? (
         <>
           <button
@@ -39,7 +44,11 @@ function Header({ handleAddClick, weatherData, isLoggedIn, onLoginClick, onRegis
           <Link to="/profile" className="header__link header__user-container">
             <p className="header__username">{currentUser?.name}</p>
             {currentUser?.avatar ? (
-              <img src={currentUser.avatar} alt="User Avatar" className="header__avatar" />
+              <img
+                src={currentUser.avatar}
+                alt="User Avatar"
+                className="header__avatar"
+              />
             ) : (
               <div className="header__avatar-placeholder">
                 {getInitial(currentUser?.name)}
@@ -49,15 +58,15 @@ function Header({ handleAddClick, weatherData, isLoggedIn, onLoginClick, onRegis
         </>
       ) : (
         <div className="header__auth-buttons">
-          <button 
-            type="button" 
+          <button
+            type="button"
             className="header__signup-btn"
             onClick={onRegisterClick}
           >
             Sign Up
           </button>
-          <button 
-            type="button" 
+          <button
+            type="button"
             className="header__login-btn"
             onClick={onLoginClick}
           >
