@@ -30,6 +30,7 @@ import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import EditProfileModal from "../EditProfileModal/EditProfileModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import LoginModal from "../LoginModal/LoginModal";
+import DeleteConfirmationModal from "../DeleteConfirmationModal/DeleteConfirmationModal";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -44,6 +45,7 @@ function App() {
   });
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
+  const [itemToDelete, setItemToDelete] = useState(null);
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
   const [clothingItems, setClothingItems] = useState(defaultClothingItems);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -90,11 +92,17 @@ function App() {
     setSelectedCard(card);
   };
 
-  const handleDeleteItem = (id) => {
+  const handleDeleteClick = (id) => {
+    setItemToDelete(id);
+    setActiveModal("delete-confirmation");
+  };
+
+  const handleDeleteItem = () => {
     const token = localStorage.getItem("jwt");
-    deleteItem(id, token)
+    deleteItem(itemToDelete, token)
       .then(() => {
-        setClothingItems((prev) => prev.filter((item) => item._id !== id));
+        setClothingItems((prev) => prev.filter((item) => item._id !== itemToDelete));
+        setItemToDelete(null);
         closeActiveModal();
       })
       .catch(console.error);
@@ -315,7 +323,14 @@ function App() {
             activeModal={activeModal}
             card={selectedCard}
             onClose={closeActiveModal}
-            onDelete={handleDeleteItem}
+            onDelete={handleDeleteClick}
+            onCardLike={handleCardLike}
+          />
+
+          <DeleteConfirmationModal
+            isOpen={activeModal === "delete-confirmation"}
+            onClose={closeActiveModal}
+            onConfirmDelete={handleDeleteItem}
           />
 
           <Footer />

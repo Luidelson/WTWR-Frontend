@@ -35,8 +35,8 @@
 }
 
 .toggle-switch {
-  margin-left: auto; /* pushes toggle and button to the right if needed */
-  margin-right: 0;
+  margin-left: auto;
+  margin-right: 1px;
 }
 
 .header__avatar-placeholder {
@@ -61,8 +61,7 @@
 
 .header__auth-buttons {
   display: flex;
-  gap: 12px;
-  margin-left: auto;
+  margin-left: 0;
 }
 
 .header__signup-btn,
