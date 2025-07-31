@@ -11,7 +11,6 @@ import { getWeather } from "../../utils/weatherApi";
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 import AddItemModal from "../AddItemModal/AddItemModal";
-import { defaultClothingItems } from "../../utils/constants";
 import Profile from "../Profile/Profile";
 import {
   getItems,
@@ -47,7 +46,7 @@ function App() {
   const [selectedCard, setSelectedCard] = useState({});
   const [itemToDelete, setItemToDelete] = useState(null);
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
-  const [clothingItems, setClothingItems] = useState(defaultClothingItems);
+  const [clothingItems, setClothingItems] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
 
@@ -101,7 +100,9 @@ function App() {
     const token = localStorage.getItem("jwt");
     deleteItem(itemToDelete, token)
       .then(() => {
-        setClothingItems((prev) => prev.filter((item) => item._id !== itemToDelete));
+        setClothingItems((prev) =>
+          prev.filter((item) => item._id !== itemToDelete)
+        );
         setItemToDelete(null);
         closeActiveModal();
       })
