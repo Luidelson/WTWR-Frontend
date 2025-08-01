@@ -48,6 +48,8 @@ export default function RegisterModal({
       isOpen={isOpen}
       onClose={onClose}
       onSubmit={handleSubmit}
+      secondaryButtonText="or Log in"
+      secondaryButtonAction={onSwitchToLogin}
     >
       <label htmlFor="register-email" className="modal__label">
         Email{" "}
@@ -97,15 +99,6 @@ export default function RegisterModal({
           onChange={handleAvatarChange}
         />
       </label>
-      <div className="modal__footer">
-        <button
-          type="button"
-          className="modal__switch-button"
-          onClick={onSwitchToLogin}
-        >
-          or Log in
-        </button>
-      </div>
     </ModalWithForm>
   );
 }

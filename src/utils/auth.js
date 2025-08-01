@@ -1,3 +1,5 @@
+import { checkResponse } from "./api";
+
 const baseUrl = "http://localhost:3001";
 
 export const signUpUser = (name, avatar, email, password) => {
@@ -40,10 +42,3 @@ export const updateUser = (name, avatar, token) => {
     body: JSON.stringify({ name, avatar }),
   }).then(checkResponse);
 };
-
-function checkResponse(res) {
-  if (res.ok) {
-    return res.json();
-  }
-  return Promise.reject(`Error: ${res.status}`);
-}

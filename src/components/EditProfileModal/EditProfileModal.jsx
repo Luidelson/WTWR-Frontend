@@ -36,24 +36,24 @@ export default function EditProfileModal({ onClose, isOpen, onUpdateUser }) {
       onClose={onClose}
       onSubmit={handleSubmit}
     >
-      <label htmlFor="name" className="modal__label">
+      <label htmlFor="edit-profile-name" className="modal__label">
         Name{" "}
         <input
           type="text"
           className="modal__input"
-          id="name"
+          id="edit-profile-name"
           placeholder="Name"
           required
           onChange={handleNameChange}
           value={name}
         />
       </label>
-      <label htmlFor="avatar" className="modal__label">
+      <label htmlFor="edit-profile-avatar" className="modal__label">
         Avatar{" "}
         <input
           type="url"
           className="modal__input"
-          id="avatar"
+          id="edit-profile-avatar"
           placeholder="Avatar URL"
           required
           value={avatar}

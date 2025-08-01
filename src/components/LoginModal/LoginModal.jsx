@@ -36,6 +36,8 @@ export default function LoginModal({
       isOpen={isOpen}
       onClose={onClose}
       onSubmit={handleSubmit}
+      secondaryButtonText="or Sign up"
+      secondaryButtonAction={onSwitchToRegister}
     >
       <label htmlFor="login-email" className="modal__label">
         Email{" "}
@@ -61,15 +63,6 @@ export default function LoginModal({
           value={password}
         />
       </label>
-      <div className="modal__footer">
-        <button
-          type="button"
-          className="modal__switch-button"
-          onClick={onSwitchToRegister}
-        >
-          or Sign up
-        </button>
-      </div>
     </ModalWithForm>
   );
 }
