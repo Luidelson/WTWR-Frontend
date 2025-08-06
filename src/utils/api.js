@@ -1,13 +1,13 @@
-const baseUrl = "http://localhost:3001";
+import { BASE_URL } from "./constants";
 
 export function getItems() {
-  return fetch(`${baseUrl}/items`).then(checkResponse);
+  return fetch(`${BASE_URL}/items`).then(checkResponse);
 }
 
 export function addItem(item, token) {
-  return fetch(`${baseUrl}/items`, {
+  return fetch(`${BASE_URL}/items`, {
     method: "POST",
-    headers: { 
+    headers: {
       "Content-Type": "application/json",
       authorization: `Bearer ${token}`,
     },
@@ -16,7 +16,7 @@ export function addItem(item, token) {
 }
 
 export function deleteItem(id, token) {
-  return fetch(`${baseUrl}/items/${id}`, {
+  return fetch(`${BASE_URL}/items/${id}`, {
     method: "DELETE",
     headers: {
       authorization: `Bearer ${token}`,
@@ -25,7 +25,7 @@ export function deleteItem(id, token) {
 }
 
 export function addCardLike(id, token) {
-  return fetch(`${baseUrl}/items/${id}/likes`, {
+  return fetch(`${BASE_URL}/items/${id}/likes`, {
     method: "PUT",
     headers: {
       authorization: `Bearer ${token}`,
@@ -34,7 +34,7 @@ export function addCardLike(id, token) {
 }
 
 export function removeCardLike(id, token) {
-  return fetch(`${baseUrl}/items/${id}/likes`, {
+  return fetch(`${BASE_URL}/items/${id}/likes`, {
     method: "DELETE",
     headers: {
       authorization: `Bearer ${token}`,

@@ -77,4 +77,9 @@ export const coordinates = {
   longitude: -111.5652096,
 };
 
+export const BASE_URL =
+  process.env.NODE_ENV === "production"
+    ? "https://firstDomain.jumpingcrab.com"
+    : "http://localhost:3001";
+
 export const APIkey = `1c5a1d03aab375879bd1ce3167e3fb94`;
