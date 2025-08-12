@@ -78,7 +78,7 @@ export const coordinates = {
 };
 
 export const BASE_URL =
-  process.env.NODE_ENV === "production"
+  import.meta.env.MODE === "production"
     ? "https://firstDomain.jumpingcrab.com"
     : "http://localhost:3001";
 

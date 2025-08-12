@@ -10,8 +10,7 @@
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "npm run build && scp -r ./dist/* lutrunks11@34.133.83.143:/home/lutrunks11/frontend/",
-    "deploy-clean": "npm run build && ssh lutrunks11@34.133.83.143 'rm -rf /home/lutrunks11/frontend/*' && scp -r ./dist/* lutrunks11@34.133.83.143:/home/lutrunks11/frontend/"
+    "deploy": "npm run build && scp -r ./dist/* lutrunks11@34.133.83.143:/home/lutrunks11/frontend/"
   },
   "dependencies": {
     "react": "^18.3.1",
