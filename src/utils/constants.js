@@ -78,8 +78,8 @@ export const coordinates = {
 };
 
 export const BASE_URL =
-  import.meta.env.MODE === "production"
-    ? "https://firstDomain.jumpingcrab.com"
+  process.env.NODE_ENV === "production"
+    ? "https://api.firstdomain.jumpingcrab.com"
     : "http://localhost:3001";
 
 export const APIkey = `1c5a1d03aab375879bd1ce3167e3fb94`;
