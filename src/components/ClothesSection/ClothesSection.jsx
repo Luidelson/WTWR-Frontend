@@ -11,6 +11,11 @@ function ClothesSection({
 }) {
   const currentUser = useContext(CurrentUserContext);
 
+  // Only render the profile clothing section when a user is logged in
+  if (!currentUser) {
+    return null;
+  }
+
   // Filter clothing items to show only those owned by the current user
   const userItems = clothingItems.filter(
     (item) => item.owner === currentUser?._id
